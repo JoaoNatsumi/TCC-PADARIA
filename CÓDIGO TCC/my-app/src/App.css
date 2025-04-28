@@ -4,7 +4,10 @@
   justify-content: center;
   display: flex;
   height: 100px;
-  width: 100%;
+  width: 75%;
+}
+body {
+  background-image: url("assets/img/BAQWUIGROU\ NDI.png");
 }
 
 #nav_bar > p {
