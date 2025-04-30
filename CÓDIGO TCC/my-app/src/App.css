@@ -1,17 +1,20 @@
 #nav_bar {
-  background-color: #f2f2f2;
   align-items: center;
   justify-content: center;
   display: flex;
-  height: 100px;
-  width: 75%;
+  margin: 35px 690px 35px 10px;
 }
 body {
-  background-image: url("assets/img/BAQWUIGROU\ NDI.png");
+  background-image: url("assets/img/FUNDO PÁGINA.png");
+  background-repeat: no-repeat, repeat;
+  background-color: #cccccc;
 }
 
 #nav_bar > p {
-  padding: 76px;
+  padding: 0px 15px;
+}
 
+img {
+  width: 35px;
 }
 
