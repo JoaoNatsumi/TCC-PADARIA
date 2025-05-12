@@ -53,3 +53,67 @@ body {
 #img_person #login_person{ 
   height: 50px;
 }
+
+
+@media screen and (max-width: 768px)  {
+  body {
+    background-image: none;
+  }
+  #container_nav {
+    display: none;
+  }
+
+  .container_header {
+    height: 42vh;
+    width: 100vw;
+    background-color: #f6eee8;
+    color: #451a0e;
+    border-radius: 0px 0px 47px 47px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-weight: 500;
+    font-size: 19px;
+    gap: 75px;
+    
+  }
+
+  #img_header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 500;
+    font-size: 19px;
+    margin-top: 146px;
+  }
+
+  #div_busca {
+    background-color: #f6eee8;
+    border:solid 1px #451a0e;
+    border-radius:15px;
+    width:325px;
+    height:28px;
+  }
+
+  #txtBusca{
+    float:left;
+    background-color:transparent;
+    padding-left:7px;
+    font-size:16px;
+    border:none;
+    height:28px;
+    width:191px;
+  }
+
+  #div_busca img{
+    float:left;
+    width: 28px;
+    padding-left: 6px;
+  }
+
+  #txtBusca::placeholder {
+    color: #451a0e9a;
+  }
+}
