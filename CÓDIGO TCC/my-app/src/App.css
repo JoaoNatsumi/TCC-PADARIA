@@ -116,4 +116,21 @@ body {
   #txtBusca::placeholder {
     color: #451a0e9a;
   }
+
+  .container_body {
+    height: 58vh;
+    width: 100vw;
+    margin: 60px 45px;
+  }
+
+  .container_body h2 {
+    font-weight: 600;
+    font-size: 18px;
+    padding-bottom: 30px;
+  }
+
+  #nav_body button {
+    margin-left: 10px;
+  }
+
 }
