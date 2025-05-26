@@ -150,10 +150,25 @@ body {
     height: 146px;
     border-radius: 15px;
     background-color: #f6eee8;
+    margin: 25px 0px;
+    font-size: 11px;
+    text-align: center;
+    color: #451a0e;
+    font-weight: bolder;
   }
 
   #produtos {
     display: flex;
     gap: 15px;
+  }
+
+  .div_produtos img {
+    width: 92px;
+    height: 92px;
+    border-radius: 16px;
+    padding: 8.5px
+  }
+  .div_produtos p {
+    margin-top: 10px;
   }
 }
