@@ -7,10 +7,174 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="src/App.css">
-  <title> Padaria Camargo </title>
+  <title>Padaria Camargo</title>
+
+  <script defer src="stogare.js"></script>
+  <script defer src="produtos.js"></script>
+
+  <style>
+    /* Menu Hamburguer */
+    .hamburguer {
+      position: fixed;
+      top: 18px;
+      left: 25px;
+      width: 30px;
+      height: 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1002;
+      background: none;
+      border: none;
+      padding: 0;
+    }
+    .hamburguer span {
+      display: block;
+      width: 36px;
+      height: 4px;
+      background: #4b2b13;
+      margin: 4px 0;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .hamburguer.active span:nth-child(1) {
+      opacity: 0;
+    }
+    .hamburguer.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburguer.active span:nth-child(3) {
+      opacity: 0;
+    }
+    /* Menu lateral */
+    .side-menu {
+      position: fixed;
+      top: 0;
+      left: -270px;
+      width: 70vw;
+      max-width: 270px;
+      height: 100vh;
+      background: #c69c6d;
+      box-shadow: 2px 0 14px #0002;
+      transition: left 0.3s;
+      z-index: 1001;
+      display: flex;
+      flex-direction: column;
+      padding: 34px 0 0 0;
+      border-radius: 0 0 24px 0;
+    }
+    .side-menu.active {
+      left: 0;
+    }
+    .side-menu-content {
+      padding: 0 28px 0 28px;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .side-menu .perfil {
+      display: flex;
+      align-items: center;
+      margin-bottom: 18px;
+      font-weight: bold;
+      color: #4b2b13;
+      font-size: 1.02rem;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .side-menu .perfil i {
+      font-size: 38px;
+      border-radius: 50%;
+      padding: 7px;
+      color: #4b2b13;
+    }
+    .side-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      flex: 1;
+    }
+    .side-menu ul li {
+      margin-bottom: 11px;
+    }
+    .side-menu ul li a {
+      color: #4b2b13;
+      text-decoration: none;
+      font-size: 1.08rem;
+      font-weight: 500;
+      transition: color 0.2s;
+      display: block;
+      padding: 7px 0 7px 10px;
+      border-radius: 6px;
+    }
+    .side-menu ul li a.active,
+    .side-menu ul li a:hover {
+      background: #d2a876;
+      color: #fff;
+    }
+    .side-menu .side-footer {
+      margin-bottom: 20px;
+      margin-top: auto;
+      text-align: left;
+    }
+    .side-menu .side-footer i {
+      font-size: 24px;
+      color: #4b2b13;
+      background: #fff8;
+      border-radius: 50%;
+      padding: 7px;
+    }
+    /* Fundo escurecido */
+    .backdrop {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw; height: 100vh;
+      background: #0006;
+      z-index: 1000;
+    }
+    .backdrop.active {
+      display: block;
+    }
+    @media (max-width: 400px) {
+      .side-menu {
+        width: 92vw;
+        max-width: 92vw;
+      }
+    }
+  </style>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Botão Hamburguer -->
+  <button class="hamburguer" id="btnMenu" aria-label="Abrir menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+  <!-- Menu lateral -->
+  <nav class="side-menu" id="sideMenu">
+    <div class="side-menu-content">
+      <div class="perfil">
+        <i class='bx bxs-user-circle'></i>
+        <span> Olá, Fulano! </span>
+      </div>
+      <ul>
+        <li><a href="#"> Seu Perfil </a></li>
+        <li><a href="#"> Início </a></li>
+        <li><a href="#"> Favoritos </a></li>
+        <li><a href="#"> Sacola </a></li>
+        <li><a href="#"> Bebidas </a></li>
+        <li><a href="#"> Lanches </a></li>
+      </ul>
+
+    </div>
+  </nav>
+  <!-- Fundo escurecido -->
+  <div class="backdrop" id="backdrop"></div>
   <div id="container_nav">
     <a href="#"><img src="src/assets/img/pngegg.png" alt="Chapéudepalha"></a>
     <nav>
@@ -25,16 +189,13 @@
   </div>
 
   <div class="container_header">
-     <div id="img_header">
-       <p>Padaria Camargo</p>
-       <p>(LOGO)</p>
-     </div>
+    <div id="img_header">
+      <img src="src/assets/img/logopadaria.png" alt="Padaria Camargo Logo" style="max-width:260px; width:100%; margin-top: -50px;">
+    </div>
 
      <div id="div_busca">
       <img src="src/assets/img/lupa.png" alt="Buscar..."/>
       <input type="text" id="txtBusca" placeholder="Pesquisar"/>
-    </div>
-
     </div>
   </div>
 
@@ -52,14 +213,18 @@
             <p> Cachorro Quente </p>
           </div>
         </a>
+        <a href="cachorroquente.html">
+          <div class="div_produtos">
+            <img src="src/assets/img/paodegue.jpg" alt="pão_de_queijo_img">
+            <p> Pão de Queijo </p>
+          </div>
+        </a>
+        <a href="cachorroquente.html">
         <div class="div_produtos">
-          <img src="src/assets/img/pdq.png" alt="pão_de_queijo_img">
-          <p> Pão de Queijo </p>
+          <img src="src/assets/img/coca-cola.jpg" alt="picles_img">
+          <p> Coca-Cola </p>
         </div>
-        <div class="div_produtos">
-          <img src="src/assets/img/picles.png" alt="picles_img">
-          <p> Picles </p>
-        </div>
+        </a>
       </div>
       <footer>
         <div id="container_footer">
@@ -68,9 +233,20 @@
             <a href="#"><img src="src/assets/img/calendário.png" alt="calendario"></a>
             <a href="sacola.html"><img src="src/assets/img/sacola.png" alt="sacola"></a>
           </div>
-        </div>
       </footer>
   </div>
-</body>
+  <script>
+    const btnMenu = document.getElementById('btnMenu');
+    const sideMenu = document.getElementById('sideMenu');
+    const backdrop = document.getElementById('backdrop');
+    function toggleMenu() {
+      btnMenu.classList.toggle('active');
+      sideMenu.classList.toggle('active');
+      backdrop.classList.toggle('active');
+    }
+    btnMenu.onclick = toggleMenu;
+    backdrop.onclick = toggleMenu;
 
+  </script>
+</body>
 </html>

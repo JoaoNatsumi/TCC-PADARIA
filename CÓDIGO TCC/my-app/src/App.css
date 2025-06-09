@@ -183,16 +183,20 @@ body {
     margin: 135px 0px 0px -19px;
   }
 
-  #container_cachorro {
+  .container_body_produto {
     height: 42vh;
     width: 100vw;
     border-radius: 0px 0px 47px 47px;
-    background-image: url(assets/img/cq.png);
     background-size: cover;
     filter: grayscale(0.4);
   }
 
-  #container_body_cachorro {
+  .container_body_produto img {
+    width: 65px;
+    margin-top: 10px;
+  }
+
+  .container_texto_produto {
     margin-top: 50px;
     padding: 0px 35px;
   }
@@ -251,5 +255,11 @@ body {
     color: #451a0e;
   }
   
+  .spanC {
+    color: blue;
+  }
   
+  .spanA {
+    color: red;
+  }
 }
