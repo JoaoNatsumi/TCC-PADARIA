@@ -168,6 +168,7 @@ body {
     padding: 8.5px
   }
 
+
   .div_produtos p {
     margin-top: 10px;
   }
@@ -262,4 +263,24 @@ body {
   .spanA {
     color: red;
   }
+
+  .body_estoque {
+    display: flex;
+    align-items: center;
+    width: 100vw;
+
+  }
+
+  .body_estoque h1 {
+    font-size: 23px;
+    padding-left: 87px;
+    margin-top: 22px;
+    color: #451a0e;
+  }
+
+  .body_estoque img {
+    width: 65px;
+    margin-top: 10px;
+  }
+  
 }
